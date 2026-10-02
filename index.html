@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevTools Playground</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <h1>DevTools Playground</h1>
+    <p>Open DevTools with <kbd>F12</kbd> (or <kbd>Cmd</kbd>+<kbd>Option</kbd>+<kbd>I</kbd>) and play with each panel.</p>
+    <button class="btn" id="theme-toggle">🌓 Toggle theme</button>
+  </header>
+
+  <main class="grid">
+
+    <!-- 1. CONSOLE -->
+    <section class="card">
+      <h2>1 · Console</h2>
+      <p class="hint">Click a button, then look at the <strong>Console</strong> panel.</p>
+      <div class="btn-row">
+        <button class="btn" data-console="log">log()</button>
+        <button class="btn" data-console="warn">warn()</button>
+        <button class="btn" data-console="error">error()</button>
+        <button class="btn" data-console="table">table()</button>
+        <button class="btn" data-console="group">group()</button>
+        <button class="btn" data-console="time">time()</button>
+        <button class="btn" data-console="count">count()</button>
+        <button class="btn" data-console="assert">assert()</button>
+      </div>
+    </section>
+
+    <!-- 2. ELEMENTS & STYLES -->
+    <section class="card">
+      <h2>2 · Elements &amp; Styles</h2>
+      <p class="hint">Right-click the paragraph → <em>Inspect</em>. Edit its CSS live.</p>
+      <p id="dom-text">I am a paragraph. Select me in the Elements panel.</p>
+      <div class="btn-row">
+        <button class="btn" id="btn-highlight">Toggle .highlight</button>
+        <button class="btn" id="btn-add-item">Add list item</button>
+        <button class="btn" id="btn-remove-item">Remove list item</button>
+      </div>
+      <ul id="dom-list" class="list">
+        <li>Item 1</li>
+      </ul>
+    </section>
+
+    <!-- 3. EVENTS -->
+    <section class="card">
+      <h2>3 · Events</h2>
+      <p class="hint">Try <em>Event Listener Breakpoints → Mouse → click</em> in Sources.</p>
+      <button class="btn" id="btn-count">
+        Clicked <span id="click-count">0</span> times
+      </button>
+      <p class="hint" style="margin-top:12px">
+        Mouse position: <span id="mouse-pos">–</span>
+      </p>
+      <form id="signup-form" class="form" novalidate>
+        <input type="email" id="email" placeholder="you@example.com" required />
+        <button class="btn" type="submit">Submit</button>
+        <p id="form-msg" class="msg" role="status"></p>
+      </form>
+    </section>
+
+    <!-- 4. NETWORK -->
+    <section class="card">
+      <h2>4 · Network</h2>
+      <p class="hint">Open the <strong>Network</strong> panel, then click a button.</p>
+      <div class="btn-row">
+        <button class="btn" id="btn-fetch-ok">Fetch success</button>
+        <button class="btn" id="btn-fetch-fail">Fetch 404</button>
+      </div>
+      <pre id="network-output" class="output">No requests yet.</pre>
+    </section>
+
+    <!-- 5. STORAGE -->
+    <section class="card">
+      <h2>5 · Application / Storage</h2>
+      <p class="hint">Check <em>Application → Local Storage</em>.</p>
+      <input type="text" id="storage-input" placeholder="Type something to save" />
+      <div class="btn-row">
+        <button class="btn" id="btn-save">Save</button>
+        <button class="btn" id="btn-load">Load</button>
+        <button class="btn" id="btn-clear">Clear</button>
+      </div>
+      <p class="hint" style="margin-top:12px">
+        Stored value: <span id="storage-value">—</span>
+      </p>
+    </section>
+
+    <!-- 6. DEBUGGING -->
+    <section class="card">
+      <h2>6 · Sources / Debugging</h2>
+      <p class="hint">
+        Open <code>script.js</code> in Sources, set a breakpoint inside
+        <code>calculateTotal()</code>, then click the button.
+      </p>
+      <button class="btn" id="btn-calc">Calculate total</button>
+      <pre id="calc-output" class="output">—</pre>
+    </section>
+
+    <!-- 7. PERFORMANCE -->
+    <section class="card">
+      <h2>7 · Performance</h2>
+      <p class="hint">Record a profile in the <strong>Performance</strong> panel, then click.</p>
+      <div class="btn-row">
+        <button class="btn" id="btn-block">Block main thread</button>
+        <button class="btn" id="btn-animate">Toggle animation</button>
+      </div>
+      <div class="box" id="box"></div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
